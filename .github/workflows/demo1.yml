@@ -1,0 +1,34 @@
+name: Artifacts workflow
+on:
+    push:
+        branches:
+            - main
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the codes
+              run: actions/checkout@v4
+            - name: install dependencies
+              run: npm install ci
+            - name: lint codes
+              run: npm run lint
+            - name: run the test
+              run: npm run test
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the codes
+              run: actions/checkout@v4
+            - name: Install dependecnies
+              run: npm install ci
+            - name: build the app
+              run: npm run build
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: deploy the code
+              run: echo "deploying the application......"
+                                      
