@@ -37,5 +37,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: deploy the code
-              run: echo "deploying the application......"
+              run: echo "deploying the application..........."
                                       
