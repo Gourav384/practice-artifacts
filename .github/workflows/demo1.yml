@@ -41,7 +41,7 @@ jobs:
             - name: download artifacts
               uses: actions/download-artifact@v4
               with:
-                name: Archive production artifacts
+                name: dist-without-markdown
             - name: listing the files
               run: ls
             - name: deploy the code
