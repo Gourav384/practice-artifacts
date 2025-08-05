@@ -2,7 +2,7 @@ name: Artifacts workflow
 on:
     push:
         branches:
-            - 'main'
+          - main
     workflow_dispatch:
 
 jobs:
