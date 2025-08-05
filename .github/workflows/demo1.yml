@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: get the codes
-              run: actions/checkout@V4
+              run: actions/checkout@V3
             - name: install dependencies
               run: npm install ci
             - name: lint codes
