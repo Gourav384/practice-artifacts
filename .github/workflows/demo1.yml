@@ -20,13 +20,18 @@ jobs:
     build:
         needs: test
         runs-on: ubuntu-latest
+        outputs: 
+          first_output: ${{ steps.job-output.outputs.outputis }}
         steps:
             - name: get the codes
               uses: actions/checkout@v4
             - name: Install dependecnies
               run: npm install ci
             - name: build the app
-              run: npm run build      
+              run: npm run build
+            - name: job output
+              id: job-output
+              run: echo 'outputis=rocknroll' >> $GITHUB_OUTPUT      
             - name: Archive production artifacts
               uses: actions/upload-artifact@v4
               with:
@@ -44,6 +49,8 @@ jobs:
                 name: dist-without-markdown
             - name: listing the files
               run: ls
+            - name: output file
+              run: echo "${{ needs.build.outputs.first_output }}"
             - name: deploy the code
               run: echo "deploying the application..........."
                                       
