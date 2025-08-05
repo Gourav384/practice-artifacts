@@ -43,7 +43,7 @@ jobs:
               with:
                 name: Archive production artifacts
             - name: listing the files
-              uses: ls
+              uses: ls Archive production artifacts
             - name: deploy the code
               run: echo "deploying the application..........."
                                       
