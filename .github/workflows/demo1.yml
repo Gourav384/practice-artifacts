@@ -2,15 +2,15 @@ name: Artifacts workflow
 on:
     push:
         branches:
-            - main
+            - 'main'
     workflow_dispatch:
-                
+
 jobs:
     test:
         runs-on: ubuntu-latest
         steps:
             - name: get the codes
-              run: actions/checkout@v4
+              run: actions/checkout@V4
             - name: install dependencies
               run: npm install ci
             - name: lint codes
